@@ -1154,7 +1154,7 @@ access-mode      = "read" / "write" / "append" / "control"</pre>
                   <tr about="#b3f5363c-6fe1-4860-82c3-58487c103eb5" typeof="spec:Change">
                     <td><a href="https://www.w3.org/policies/process/#class-4" rel="spec:changeClass">4</a></td>
                     <td><a href="#acl-resources" rel="spec:changeSubject">#acl-resources</a></td>
-                    <td property="spec:statement">Remove ACL Resource Condition Discovery section (formerly §3.2). Link header condition discovery replaced by 422-based validation at write time.</td>
+                    <td property="spec:statement">Remove ACL Resource Condition Discovery section (formerly §3.2). Link-header-based condition discovery replaced by 422-based validation at write time.</td>
                   </tr>
                   <tr about="#c12b51b2-4abc-4726-88a5-07623c0c8c08" typeof="spec:Change">
                     <td><a href="https://www.w3.org/policies/process/#class-4" rel="spec:changeClass">4</a></td>
@@ -1169,7 +1169,7 @@ access-mode      = "read" / "write" / "append" / "control"</pre>
                   <tr about="#e52bf22c-124c-4af2-98f3-c27cdbc79270" typeof="spec:Change">
                     <td><a href="https://www.w3.org/policies/process/#class-4" rel="spec:changeClass">4</a></td>
                     <td><a href="#condition-evaluation" rel="spec:changeSubject">#condition-evaluation</a></td>
-                    <td property="spec:statement">Add <a href="#condition-evaluation">Condition Evaluation</a> section with fail-closed semantics: unsupported conditions make Authorizations non-applicable, conjunctive evaluation, and MUST 422 on unsupported condition writes.</td>
+                    <td property="spec:statement">Add <a href="#condition-evaluation">Condition Evaluation</a> section with fail-closed semantics: unsupported conditions make Authorizations non-applicable, conjunctive evaluation, and MUST respond with 422 Unprocessable Entity when an unsupported condition type is written.</td>
                   </tr>
                   <tr about="#fc13b6f0-7cdf-463d-b973-de6f0f75c5d6" typeof="spec:Change">
                     <td><a href="https://www.w3.org/policies/process/#class-2" rel="spec:changeClass">2</a></td>
