@@ -228,11 +228,11 @@ content:counter(appendix, upper-alpha) "." counter(sub-appendix) "\00a0";
             <summary>More details about this document</summary>
             <dl id="document-identifier">
               <dt>This version</dt>
-              <dd><a href="https://solid.github.io/web-access-control-spec/" rel="owl:sameAs">https://solid.github.io/web-access-control-spec/</a></dd>
+              <dd><a href="https://webacl.org/secure-access-conditions/" rel="owl:sameAs">https://webacl.org/secure-access-conditions/</a></dd>
             </dl>
             <dl id="document-latest-published-version">
               <dt>Latest published version</dt>
-              <dd><a href="https://solidproject.org/TR/wac" rel="rel:latest-version">https://solidproject.org/TR/wac</a></dd>
+              <dd><a href="https://webacl.org/secure-access-conditions/" rel="rel:latest-version">https://webacl.org/secure-access-conditions/</a></dd>
             </dl>
             <dl id="document-previous-version">
               <dt>Previous version</dt>
@@ -264,7 +264,7 @@ content:counter(appendix, upper-alpha) "." counter(sub-appendix) "\00a0";
             </dl>
             <dl id="document-modified">
               <dt>Modified</dt>
-              <dd><time content="2026-03-24T00:00:00Z" datatype="xsd:dateTime" datetime="2026-03-24T00:00:00Z" property="schema:dateModified">2026-03-24</time></dd>
+              <dd><time content="2026-04-16T00:00:00Z" datatype="xsd:dateTime" datetime="2026-04-16T00:00:00Z" property="schema:dateModified">2026-04-16</time></dd>
             </dl>
             <dl id="document-feedback">
               <dt>Feedback</dt>
@@ -1153,8 +1153,8 @@ access-mode      = "read" / "write" / "append" / "control"</pre>
                   </tr>
                   <tr about="#b3f5363c-6fe1-4860-82c3-58487c103eb5" typeof="spec:Change">
                     <td><a href="https://www.w3.org/policies/process/#class-4" rel="spec:changeClass">4</a></td>
-                    <td><a href="#condition-evaluation" rel="spec:changeSubject">#condition-evaluation</a></td>
-                    <td property="spec:statement">Remove Link header condition discovery in favour of 422-based validation. Condition support is determined by server response to ACL writes.</td>
+                    <td><a href="#acl-resources" rel="spec:changeSubject">#acl-resources</a></td>
+                    <td property="spec:statement">Remove ACL Resource Condition Discovery section (formerly §3.2). Link-header-based condition discovery replaced by 422-based validation at write time.</td>
                   </tr>
                   <tr about="#c12b51b2-4abc-4726-88a5-07623c0c8c08" typeof="spec:Change">
                     <td><a href="https://www.w3.org/policies/process/#class-4" rel="spec:changeClass">4</a></td>
@@ -1169,7 +1169,7 @@ access-mode      = "read" / "write" / "append" / "control"</pre>
                   <tr about="#e52bf22c-124c-4af2-98f3-c27cdbc79270" typeof="spec:Change">
                     <td><a href="https://www.w3.org/policies/process/#class-4" rel="spec:changeClass">4</a></td>
                     <td><a href="#condition-evaluation" rel="spec:changeSubject">#condition-evaluation</a></td>
-                    <td property="spec:statement">Add <a href="#condition-evaluation" rel="spec:changeSubject">Condition Evaluation</a> section describing the <a href="#server-condition-evaluation">evaluation of conditions</a> and their <a href="#server-condition-evaluation-conjunctive">conjunctive</a> requirement.</td>
+                    <td property="spec:statement">Add <a href="#condition-evaluation">Condition Evaluation</a> section with fail-closed semantics: unsupported conditions make Authorizations non-applicable, conjunctive evaluation, and MUST respond with 422 Unprocessable Entity when an unsupported condition type is written.</td>
                   </tr>
                   <tr about="#fc13b6f0-7cdf-463d-b973-de6f0f75c5d6" typeof="spec:Change">
                     <td><a href="https://www.w3.org/policies/process/#class-2" rel="spec:changeClass">2</a></td>
