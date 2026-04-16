@@ -384,8 +384,7 @@ content:counter(appendix, upper-alpha) "." counter(sub-appendix) "\00a0";
                   <p><a class="tocxref" href="#acl-resources"><bdi class="secno">3.</bdi> <span>ACL Resources</span></a></p>
                   <ol>
                     <li class="tocline"><a class="tocxref" href="#acl-resource-discovery"><bdi class="secno">3.1</bdi> <span>ACL Resource Discovery</span></a></li>
-                    <li class="tocline"><a class="tocxref" href="#acl-resource-condition-discovery"><bdi class="secno">3.2</bdi> <span>ACL Resource Condition Discovery</span></a></li>
-                    <li class="tocline"><a class="tocxref" href="#acl-resource-representation"><bdi class="secno">3.3</bdi> <span>ACL Resource Representation</span></a></li>
+                    <li class="tocline"><a class="tocxref" href="#acl-resource-representation"><bdi class="secno">3.2</bdi> <span>ACL Resource Representation</span></a></li>
                   </ol>
                 </li>
                 <li class="tocline">
@@ -565,7 +564,7 @@ content:counter(appendix, upper-alpha) "." counter(sub-appendix) "\00a0";
           <section id="acl-resources" inlist="" rel="schema:hasPart" resource="#acl-resources">
             <h2 property="schema:name">ACL Resources</h2>
             <div datatype="rdf:HTML" property="schema:description">
-              <p>This section describes ACL resource <a href="#acl-resource-discovery" rel="cito:discusses">discovery</a>, <a href="#acl-resource-condition-discovery" rel="cito:discusses">condition discovery</a>, and <a href="#acl-resource-representation" rel="cito:discusses">representation</a>.</p>
+              <p>This section describes ACL resource <a href="#acl-resource-discovery" rel="cito:discusses">discovery</a> and <a href="#acl-resource-representation" rel="cito:discusses">representation</a>.</p>
               <section id="acl-resource-discovery" inlist="" rel="schema:hasPart" resource="#acl-resource-discovery">
                 <h3 property="schema:name">ACL Resource Discovery</h3>
                 <div datatype="rdf:HTML" property="schema:description">
@@ -587,19 +586,6 @@ content:counter(appendix, upper-alpha) "." counter(sub-appendix) "\00a0";
                   </div>
                   <p about="" id="client-acl-uri" rel="spec:requirement" resource="#client-acl-uri"><span property="spec:statement"><span rel="spec:requirementSubject" resource="spec:Client">Clients</span> <span rel="spec:requirementLevel" resource="spec:MUSTNOT">MUST NOT</span> derive the URI of the ACL resource through string operations on the URI of the resource.</span></p>
                   <p class="advisement">Source: <a href="https://github.com/solid/web-access-control-spec/issues/8" rel="cito:citesAsSourceDocument">issues/8</a>, <a href="https://github.com/solid/web-access-control-spec/issues/62" rel="cito:citesAsSourceDocument">issues/62</a>, <a href="https://github.com/solid/specification/issues/131" rel="cito:citesAsSourceDocument">issues/131</a>, <a href="https://github.com/solid/specification/issues/176" rel="cito:citesAsSourceDocument">issues/176</a></p>
-                </div>
-              </section>
-              <section id="acl-resource-condition-discovery" inlist="" rel="schema:hasPart" resource="#acl-resource-condition-discovery">
-                <h3 property="schema:name">ACL Resource Condition Discovery</h3>
-                <div datatype="rdf:HTML" property="schema:description">
-                  <p about="" id="server-link-condition" rel="spec:requirement" resource="#server-link-condition"><span property="spec:statement">When a server wants to enable applications to discover supported condition types (<cite><a href="#access-conditions" rel="rdfs:seeAlso">Access Conditions</a></cite>) for a given <a href="#effective-acl-resource">effective ACL resource</a>, the <span rel="spec:requirementSubject" resource="spec:Server">server</span> <span rel="spec:requirementLevel" resource="spec:MUST">MUST</span> advertise each supported condition type by responding to an HTTP request on the effective ACL resource including a <code>Link</code> header with the <code>rel</code> value of <code>http://www.w3.org/ns/auth/acl#condition</code> and the condition type as link target [<cite><a class="bibref" href="#bib-rfc8288">RFC8288</a></cite>].</span></p>
-                  <p about="" id="client-link-condition" rel="spec:requirement" resource="#client-link-condition"><span property="spec:statement"><span rel="spec:requirementSubject" resource="spec:Client">Clients</span> <span rel="spec:requirementLevel" resource="spec:MUST">MUST</span> make an HTTP request on the <a href="#effective-acl-resource">effective ACL resource</a> and check the HTTP <code>Link</code> header with the <code>rel</code> parameter value of <code>http://www.w3.org/ns/auth/acl#condition</code> to discover supported condition types (<cite><a href="#access-conditions" rel="rdfs:seeAlso">Access Conditions</a></cite>).</span></p>
-                  <div class="note" id="condition-discovery-via-effective-acl-resource" inlist="" rel="schema:hasPart" resource="#condition-discovery-via-effective-acl-resource">
-                    <h3 property="schema:name"><span>Note</span>: Discovering Condition Types via Effective ACL Resource</h3>
-                    <div datatype="rdf:HTML" property="schema:description">
-                      <p>Clients do not need an additional HTTP request to <a href="#client-link-condition">discover supported condition types</a>, since they can be obtained as part of determining the <a href="#effective-acl-resource">effective ACL resource</a>.</p>
-                    </div>
-                  </div>
                 </div>
               </section>
               <section id="acl-resource-representation" inlist="" rel="schema:hasPart" resource="#acl-resource-representation">
@@ -700,7 +686,7 @@ content:counter(appendix, upper-alpha) "." counter(sub-appendix) "\00a0";
               <section id="access-conditions" inlist="" rel="schema:hasPart" resource="#access-conditions">
                 <h3 property="schema:name">Access Conditions</h3>
                 <div datatype="rdf:HTML" property="schema:description">
-                  <p id="acl-condition">The <code>acl:condition</code> predicate specifies a condition on an <a href="#authorization">Authorization</a> beyond <a href="#access-objects">access objects</a>, <a href="#access-modes">access modes</a>, and <a href="#access-subjects">access subjects</a>. The value of <code>acl:condition</code> entails <code>acl:Condition</code>. Supported condition types are discovered via <a href="#acl-resource-condition-discovery" rel="rdfs:seeAlso">ACL Resource Condition Discovery</a>.</p>
+                  <p id="acl-condition">The <code>acl:condition</code> predicate specifies a condition on an <a href="#authorization">Authorization</a> beyond <a href="#access-objects">access objects</a>, <a href="#access-modes">access modes</a>, and <a href="#access-subjects">access subjects</a>. The value of <code>acl:condition</code> entails <code>acl:Condition</code>. See <a href="#condition-evaluation">Condition Evaluation</a> for how servers handle unsupported condition types.</p>
                   <section id="access-client-condition" inlist="" rel="schema:hasPart" resource="#access-client-condition">
                     <h4 property="schema:name">Client Condition</h4>
                     <div datatype="rdf:HTML" property="schema:description">
@@ -836,10 +822,11 @@ content:counter(appendix, upper-alpha) "." counter(sub-appendix) "\00a0";
                   <section id="condition-evaluation" inlist="" rel="schema:hasPart" resource="#condition-evaluation">
                     <h4 property="schema:name">Condition Evaluation</h4>
                     <div datatype="rdf:HTML" property="schema:description">
-                      <p about="" id="server-condition-evaluation" rel="spec:requirement" resource="#server-condition-evaluation"><span property="spec:statement">When an Authorization includes one or more <code>acl:condition</code> properties, the <span rel="spec:requirementSubject" resource="spec:Server">server</span> <span rel="spec:requirementLevel" resource="spec:MUST">MUST</span> treat the Authorization as non-applicable if any condition's type is not signalled via <a href="#acl-resource-condition-discovery">ACL Resource Condition Discovery</a>.</span></p>
-                      <p about="" id="server-condition-evaluation-conjunctive" rel="spec:requirement" resource="#server-condition-evaluation-conjunctive"><span property="spec:statement">When an Authorization includes one or more <code>acl:condition</code> properties whose types are all signalled, the <span rel="spec:requirementSubject" resource="spec:Server">server</span> <span rel="spec:requirementLevel" resource="spec:MUST">MUST</span> match an Authorization only when all such conditions are satisfied.</span></p>
-                      <p about="" id="server-condition-write-validation" rel="spec:requirement" resource="#server-condition-write-validation"><span property="spec:statement">When a client attempts to create or update an ACL resource containing an <code>acl:condition</code> whose type is not signalled, the <span rel="spec:requirementSubject" resource="spec:Server">server</span> <span rel="spec:requirementLevel" resource="spec:MUST">MUST</span> respond with <code>422 Unprocessable Entity</code>.</span></p>
+                      <p about="" id="server-condition-evaluation" rel="spec:requirement" resource="#server-condition-evaluation"><span property="spec:statement">When an Authorization includes one or more <code>acl:condition</code> properties, the <span rel="spec:requirementSubject" resource="spec:Server">server</span> <span rel="spec:requirementLevel" resource="spec:MUST">MUST</span> treat the Authorization as non-applicable if any condition's type is not supported by the server.</span></p>
+                      <p about="" id="server-condition-evaluation-conjunctive" rel="spec:requirement" resource="#server-condition-evaluation-conjunctive"><span property="spec:statement">When an Authorization includes one or more <code>acl:condition</code> properties whose types are all supported by the server, the <span rel="spec:requirementSubject" resource="spec:Server">server</span> <span rel="spec:requirementLevel" resource="spec:MUST">MUST</span> match an Authorization only when all such conditions are satisfied.</span></p>
+                      <p about="" id="server-condition-write-validation" rel="spec:requirement" resource="#server-condition-write-validation"><span property="spec:statement">When a client attempts to create or update an ACL resource containing an <code>acl:condition</code> whose type is not supported by the server, the <span rel="spec:requirementSubject" resource="spec:Server">server</span> <span rel="spec:requirementLevel" resource="spec:MUST">MUST</span> respond with <code>422 Unprocessable Entity</code>.</span></p>
                       <p>This specification defines condition types in <cite><a href="#access-conditions" rel="rdfs:seeAlso">Access Conditions</a></cite>. Additional condition types can be defined as per <cite><a href="#authorization-extensions" rel="rdfs:seeAlso">Authorization Extensions</a></cite>.</p>
+                      <p class="note">Clients can determine whether a server supports a given condition type by writing an ACL resource containing that condition. A successful response indicates the condition is accepted and will be enforced. A <code>422 Unprocessable Entity</code> response indicates the condition type is not supported.</p>
                     </div>
                   </section>
                   <section id="web-origin-authorization" inlist="" rel="schema:hasPart" resource="#web-origin-authorization">
@@ -1166,8 +1153,8 @@ access-mode      = "read" / "write" / "append" / "control"</pre>
                   </tr>
                   <tr about="#b3f5363c-6fe1-4860-82c3-58487c103eb5" typeof="spec:Change">
                     <td><a href="https://www.w3.org/policies/process/#class-4" rel="spec:changeClass">4</a></td>
-                    <td><a href="#acl-resource-condition-discovery" rel="spec:changeSubject">#acl-resource-condition-discovery</a></td>
-                    <td property="spec:statement">Add requirements for <a href="#acl-resource-condition-discovery">ACL Resource Condition Discovery</a>.</td>
+                    <td><a href="#condition-evaluation" rel="spec:changeSubject">#condition-evaluation</a></td>
+                    <td property="spec:statement">Remove Link header condition discovery in favour of 422-based validation. Condition support is determined by server response to ACL writes.</td>
                   </tr>
                   <tr about="#c12b51b2-4abc-4726-88a5-07623c0c8c08" typeof="spec:Change">
                     <td><a href="https://www.w3.org/policies/process/#class-4" rel="spec:changeClass">4</a></td>
@@ -1191,7 +1178,7 @@ access-mode      = "read" / "write" / "append" / "control"</pre>
                   </tr>
                   <tr about="#a2e78760-5f70-4fc1-95df-754478278bc9" typeof="spec:Change">
                     <td><a href="https://www.w3.org/policies/process/#class-2" rel="spec:changeClass">2</a></td>
-                    <td><a href="#consider-client-issuer-agnostic-control" rel="spec:changeSubject">#consider-client-issuer-agnostic-control</a></td>
+                    <td><a href="#consider-client-agnostic-control" rel="spec:changeSubject">#consider-client-agnostic-control</a></td>
                     <td property="spec:statement">Add security consideration advisement for <a href="#consider-client-agnostic-control">client-issuer-agnostic</a> control scenarios.</td>
                   </tr>
                   <tr about="#b26d849b-0ceb-4c62-981b-0cd58da07567" typeof="spec:Change">
@@ -1208,11 +1195,6 @@ access-mode      = "read" / "write" / "append" / "control"</pre>
                     <td><a href="https://www.w3.org/policies/process/#class-2" rel="spec:changeClass">2</a></td>
                     <td><a href="#security-privacy-review-first-third-party" rel="spec:changeSubject">#security-privacy-review-first-third-party</a></td>
                     <td property="spec:statement">Amend <a href="#security-privacy-review-first-third-party">first- and third-party context</a> in security and privacy review.</td>
-                  </tr>
-                  <tr about="#dfc57b3a-dab6-4bf7-a23d-edb589230850" typeof="spec:Change">
-                    <td><a href="https://www.w3.org/policies/process/#class-2" rel="spec:changeClass">2</a></td>
-                    <td><a href="#condition-discovery-via-effective-acl-resource" rel="spec:changeSubject">#condition-discovery-via-effective-acl-resource</a></td>
-                    <td property="spec:statement">Add note about <a href="#condition-discovery-via-effective-acl-resource">discovering condition types via effective ACL resource</a> without additional requests.</td>
                   </tr>
                 </tbody>
                 <tfoot>
