@@ -384,7 +384,7 @@ content:counter(appendix, upper-alpha) "." counter(sub-appendix) "\00a0";
                   <p><a class="tocxref" href="#acl-resources"><bdi class="secno">3.</bdi> <span>ACL Resources</span></a></p>
                   <ol>
                     <li class="tocline"><a class="tocxref" href="#acl-resource-discovery"><bdi class="secno">3.1</bdi> <span>ACL Resource Discovery</span></a></li>
-                    <li class="tocline"><a class="tocxref" href="#acl-resource-representation"><bdi class="secno">3.3</bdi> <span>ACL Resource Representation</span></a></li>
+                    <li class="tocline"><a class="tocxref" href="#acl-resource-representation"><bdi class="secno">3.2</bdi> <span>ACL Resource Representation</span></a></li>
                   </ol>
                 </li>
                 <li class="tocline">
@@ -686,7 +686,7 @@ content:counter(appendix, upper-alpha) "." counter(sub-appendix) "\00a0";
               <section id="access-conditions" inlist="" rel="schema:hasPart" resource="#access-conditions">
                 <h3 property="schema:name">Access Conditions</h3>
                 <div datatype="rdf:HTML" property="schema:description">
-                  <p id="acl-condition">The <code>acl:condition</code> predicate specifies a condition on an <a href="#authorization">Authorization</a> beyond <a href="#access-objects">access objects</a>, <a href="#access-modes">access modes</a>, and <a href="#access-subjects">access subjects</a>. The value of <code>acl:condition</code> entails <code>acl:Condition</code>. Servers that do not support a given condition type MUST respond with <code>422 Unprocessable Entity</code> when a client writes an ACL containing that condition, and MUST treat the Authorization as non-applicable during evaluation.</p>
+                  <p id="acl-condition">The <code>acl:condition</code> predicate specifies a condition on an <a href="#authorization">Authorization</a> beyond <a href="#access-objects">access objects</a>, <a href="#access-modes">access modes</a>, and <a href="#access-subjects">access subjects</a>. The value of <code>acl:condition</code> entails <code>acl:Condition</code>. See <a href="#condition-evaluation">Condition Evaluation</a> for how servers handle unsupported condition types.</p>
                   <section id="access-client-condition" inlist="" rel="schema:hasPart" resource="#access-client-condition">
                     <h4 property="schema:name">Client Condition</h4>
                     <div datatype="rdf:HTML" property="schema:description">
